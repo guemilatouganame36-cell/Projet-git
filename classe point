@@ -1,0 +1,40 @@
+import numpy as np
+class Point:
+        def __init__(self,string,a,b):
+             self._nom=string
+             self._x=a
+             self._y=b
+        def affiche(self):
+            print("je suis le point",self._nom,"abscisse:",self._x,"et ordonne:",self._y)
+        def deplace(self,dx,dy):
+                self._x=self._x+dx
+                self._y=self._y+dy
+        def distance(self,p):
+                    dx=self._x-p._x
+                    dy=self._y-p._y
+                    return np.sqrt(dx*dx+dy*dy)
+        def setX(self,a):
+                    self._x=a
+        def setY(self,b):
+            self._y=b
+        def setNom(self,string):
+                  self._nom=string
+        def getX(self):
+            return self._x
+        def getY(self):
+            return self._y
+        def getNom(self):
+            return self._nom
+from point import Point
+def main():
+    p1=Point("P1",2.5,4)
+    p2=Point("P2",8,7)
+    p1.affiche()
+    p2.affiche()
+    p1.deplace(0.5,1.5)
+    p1.affiche()
+    p2.setX(2.5)
+    p1.setY(0)
+    d1=p1.distance(p2)
+    print("la distance entre",p1.getNom(),"et",p2.getNom(),"est",d1)
+main()
